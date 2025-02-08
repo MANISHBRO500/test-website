@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Question Publisher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Teacher Question Publisher</h1>
+
+        <label for="questionInput">Enter your question:</label>
+        <textarea id="questionInput" placeholder="Enter your question..."></textarea>
+
+        <label for="questionType">Select question type:</label>
+        <select id="questionType">
+            <option value="mcq">MCQ</option>
+            <option value="short">Short Answer</option>
+            <option value="long">Long Answer</option>
+        </select>
+
+        <div id="optionsDiv" style="display: none;">
+            <label for="options">Enter options (comma separated):</label>
+            <input type="text" id="options" placeholder="Option 1, Option 2, Option 3">
+        </div>
+
+        <button onclick="publishQuestion()">Publish Question</button>
+
+        <h2>Published Questions</h2>
+        <div id="questionList"></div> <!-- Dynamically filled with published questions -->
+    </div>
+
+    <script src="teacher.js"></script>
+</body>
+</html>
