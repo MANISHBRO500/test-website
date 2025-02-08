@@ -13,7 +13,7 @@ const app = express();
 
 // Enable CORS for GitHub Pages
 app.use(cors({
-    origin: 'https://manishbro500.github.io/test-website/frontend',  // Replace with your actual GitHub Pages URL
+    origin: 'https://manishbro500.github.io/test-website',  // Replace with your actual GitHub Pages URL
     methods: ['GET', 'POST'],  // Allow only GET and POST methods
     allowedHeaders: ['Content-Type', 'Authorization'],  // Allow headers like Content-Type and Authorization
 }));
