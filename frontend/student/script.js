@@ -7,7 +7,7 @@ async function loadQuestions() {
         return;
     }
 
-    const response = await fetch('http://localhost:5000/questions', {
+    const response = await fetch('https://test-website-whz6.onrender.com/questions', {
         headers: {
             'Authorization': `Bearer ${token}`,
         },
@@ -54,7 +54,7 @@ async function submitAnswers() {
         return;
     }
 
-    const response = await fetch('http://localhost:5000/answers/submit', {
+    const response = await fetch('https://test-website-whz6.onrender.com/answers/submit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
