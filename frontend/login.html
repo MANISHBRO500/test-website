@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+    <h1>Login</h1>
+
+    <div>
+        <label for="userId">User ID</label>
+        <input type="text" id="userId">
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password">
+    </div>
+
+    <button onclick="login()">Login</button>
+
+    <script>
+        async function login() {
+            const userId = document.getElementById('userId').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch('http://localhost:5000/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userId, password })
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                localStorage.setItem('token', result.token); // Save JWT token to localStorage
+                alert('Login successful');
+                window.location.href = result.role === 'teacher' ? '/teacher.html' : '/student.html';
+            } else {
+                alert('Invalid credentials');
+            }
+        }
+    </script>
+
+</body>
+</html>
