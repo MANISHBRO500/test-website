@@ -6,7 +6,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     const password = document.getElementById('password').value;
 
     // Send the login credentials to the backend
-    const response = await fetch('https://your-backend-url.onrender.com/auth/login', {
+    const response = await fetch('https://test-website-whz6.onrender.com/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
