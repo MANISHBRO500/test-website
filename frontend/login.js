@@ -7,12 +7,13 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
     // Send the login credentials to the backend
     const response = await fetch('https://test-website-whz6.onrender.com/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ userId, password })
-    });
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ userId, password })
+});
+
 
     const data = await response.json();
 
