@@ -6,22 +6,21 @@ const authRoutes = require('./routes/auth');
 const questionRoutes = require('./routes/question');
 const answerRoutes = require('./routes/answer');
 
-// Load environment variables
 dotenv.config();
 
 const app = express();
 
-// Enable CORS for GitHub Pages
+// ✅ Update CORS to allow the correct GitHub Pages URL
 app.use(cors({
-    origin: 'https://manishbro500.github.io/test-website',  // Replace with your actual GitHub Pages URL
-    methods: ['GET', 'POST'],  // Allow only GET and POST methods
-    allowedHeaders: ['Content-Type', 'Authorization'],  // Allow headers like Content-Type and Authorization
+    origin: ['https://manishbro500.github.io'], // ✅ Use only the base GitHub Pages URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-// Middleware to parse JSON bodies
+// Middleware
 app.use(express.json());
 
-// Use routes
+// Routes
 app.use('/auth', authRoutes);
 app.use('/questions', questionRoutes);
 app.use('/answers', answerRoutes);
@@ -31,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
     .then(() => console.log("MongoDB connected"))
     .catch(err => console.log(err));
 
-// Start the server
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
