@@ -1,7 +1,8 @@
 const express = require('express');
-const { login } = require('../controllers/auth'); // Import login function
+const { login } = require('../controllers/auth');  // Import the login function from the controller
 const router = express.Router();
 
-router.post('/login', login); // ✅ Route for logging in
+// Define the login route using the imported login function
+router.post('/login', login);  // POST request to /login will call the login function from the controller
 
-module.exports = router;
+module.exports = router;  // Export the router to be used in the server.js
