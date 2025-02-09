@@ -71,6 +71,13 @@ button:hover {
     text-align: center;
     margin-top: 10px;
 }
+.error-message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
 
 /* Responsive Design for smaller screens */
 @media (max-width: 480px) {
